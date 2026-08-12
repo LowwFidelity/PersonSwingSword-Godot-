@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b70ux28b7qal0"]
 
-[ext_resource type="Script" uid="uid://c108ievcrlqdi" path="res://scene/player.gd" id="1_hjaqi"]
+[ext_resource type="Script" uid="uid://c108ievcrlqdi" path="res://script/player.gd" id="1_hjaqi"]
 [ext_resource type="Texture2D" uid="uid://buaxet2202467" path="res://assets/FREE_Adventurer 2D Pixel Art/Sprites/IDLE/idle_down.png" id="1_xo3ru"]
 [ext_resource type="Texture2D" uid="uid://bcyjl3ghrf80q" path="res://assets/FREE_Adventurer 2D Pixel Art/Sprites/ATTACK 1/attack1_down.png" id="2_34jf3"]
 [ext_resource type="Texture2D" uid="uid://dyetdw5c03etb" path="res://assets/FREE_Adventurer 2D Pixel Art/Sprites/IDLE/idle_left.png" id="3_s4jxa"]

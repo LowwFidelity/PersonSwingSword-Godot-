@@ -339,10 +339,9 @@ script = ExtResource("1_b7koy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1891060657]
 sprite_frames = SubResource("SpriteFrames_agyp5")
-animation = &"walk_up"
+animation = &"walk_down"
 autoplay = "idle_down"
-frame = 3
-frame_progress = 0.56263304
+frame_progress = 0.4623963
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1335449001]
 shape = SubResource("CircleShape2D_b2irg")
@@ -356,7 +355,7 @@ metadata/_custom_type_script = "uid://bf7rtc8liqpu6"
 script = ExtResource("4_1e552")
 metadata/_custom_type_script = "uid://bddu7irjkiput"
 
-[node name="Agrro" type="Area2D" parent="." unique_id=1003748685]
+[node name="Aggro" type="Area2D" parent="." unique_id=1003748685]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Agrro" unique_id=1309365919]
+[node name="AggroRange" type="CollisionShape2D" parent="Aggro" unique_id=1309365919]
 shape = SubResource("CircleShape2D_agyp5")
