@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dt31ut06r223n"]
 
 [ext_resource type="Script" uid="uid://du0bb057ov7ih" path="res://script/health_component.gd" id="1_rh8dj"]
-[ext_resource type="Script" uid="uid://ccrtbfx3pewwt" path="res://scene/health_bar.gd" id="1_y5m40"]
+[ext_resource type="Script" uid="uid://ccrtbfx3pewwt" path="res://script/health_bar.gd" id="1_y5m40"]
 
 [node name="HealthBar" type="ProgressBar" unique_id=2142319342]
 anchors_preset = 15

@@ -5,6 +5,7 @@ var current_state : PlayerState = PlayerState.IDLE
 
 @onready var input_component: InputComponent = %InputComponent
 @onready var movement_component: MovementComponent = %MovementComponent
+@onready var health_component : HealthComponent = %HealthComponent
 @onready var animation_component: AnimationComponent = $AnimationComponent
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 
