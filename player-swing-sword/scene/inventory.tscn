@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cnpyuu8pre8ef"]
+
+[ext_resource type="Script" uid="uid://cfs4dijy4al5w" path="res://script/color_rect.gd" id="1_nbguh"]
+[ext_resource type="Script" uid="uid://bu8nd1vkvyjfj" path="res://script/inventory.gd" id="1_ql1wb"]
+
+[node name="Inventory" type="Control" unique_id=172901817]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_bottom = 500.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ql1wb")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1186113115]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_bottom = 500.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nbguh")
