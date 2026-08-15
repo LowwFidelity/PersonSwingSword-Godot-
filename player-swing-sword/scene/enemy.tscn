@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://bf7rtc8liqpu6" path="res://script/components/animation_component.gd" id="3_ulb22"]
 [ext_resource type="Script" uid="uid://bddu7irjkiput" path="res://script/components/movement_component.gd" id="4_1e552"]
 [ext_resource type="Script" uid="uid://tt5ajv8uo2dx" path="res://script/components/detection_componenet.gd" id="5_yvcfn"]
+[ext_resource type="Script" uid="uid://b7u3yc86obawk" path="res://script/components/chase_componenet.gd" id="6_ulb22"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vgurf"]
 atlas = ExtResource("2_yvcfn")
@@ -229,7 +230,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_6bka5")
 }],
 "loop": 1,
-"name": &"walk_down",
+"name": &"run_down",
 "speed": 10.0
 }, {
 "frames": [{
@@ -261,7 +262,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_32dru")
 }],
 "loop": 1,
-"name": &"walk_left",
+"name": &"run_left",
 "speed": 10.0
 }, {
 "frames": [{
@@ -293,7 +294,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_kgj4v")
 }],
 "loop": 1,
-"name": &"walk_right",
+"name": &"run_right",
 "speed": 10.0
 }, {
 "frames": [{
@@ -325,7 +326,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_yyob4")
 }],
 "loop": 1,
-"name": &"walk_up",
+"name": &"run_up",
 "speed": 10.0
 }]
 
@@ -341,9 +342,8 @@ script = ExtResource("1_b7koy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1891060657]
 sprite_frames = SubResource("SpriteFrames_agyp5")
-animation = &"walk_down"
+animation = &"run_up"
 autoplay = "idle_down"
-frame_progress = 0.4623963
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1335449001]
 shape = SubResource("CircleShape2D_b2irg")
@@ -368,5 +368,10 @@ script = ExtResource("5_yvcfn")
 detection_area = NodePath("../Area2D")
 metadata/_custom_type_script = "uid://tt5ajv8uo2dx"
 
+[node name="ChaseComponent" type="Node" parent="." unique_id=388682123]
+script = ExtResource("6_ulb22")
+metadata/_custom_type_script = "uid://b7u3yc86obawk"
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D" to="ChaseComponent" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

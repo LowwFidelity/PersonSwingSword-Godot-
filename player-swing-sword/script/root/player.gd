@@ -7,6 +7,7 @@ var current_state : PlayerState = PlayerState.IDLE
 @onready var movement_component: MovementComponent = %MovementComponent
 @onready var animation_component: AnimationComponent = $AnimationComponent
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
+@export var player_speed: float = 100.0
 
 func _physics_process(delta: float) -> void:
 	input_component.update()
@@ -18,7 +19,7 @@ func _physics_process(delta: float) -> void:
 	# Only update movement and idle/run state if not currently attacking
 	if current_state != PlayerState.ATTACK:
 		movement_component.direction = input_component.move_dir
-		movement_component.move(delta)
+		movement_component.move(delta, player_speed)
 		
 		if input_component.move_dir != Vector2.ZERO:
 			current_state = PlayerState.RUN
