@@ -8,6 +8,8 @@ var current_state : PlayerState = PlayerState.IDLE
 @onready var health_component : HealthComponent = %HealthComponent
 @onready var animation_component: AnimationComponent = $AnimationComponent
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
+func _ready() -> void:
+	health_component.died.connect(_on_died)
 
 func _physics_process(delta: float) -> void:
 	input_component.update()
@@ -15,6 +17,12 @@ func _physics_process(delta: float) -> void:
 	if input_component.attack_input and current_state != PlayerState.ATTACK:
 		perform_attack()
 		return
+	
+	if input_component.hurt_pressed:
+		health_component.damage(10)
+		
+	if input_component.heal_pressed:
+		health_component.heal(10)
 	
 	# Only update movement and idle/run state if not currently attacking
 	if current_state != PlayerState.ATTACK:
@@ -27,6 +35,7 @@ func _physics_process(delta: float) -> void:
 			current_state = PlayerState.IDLE
 			
 		animation_component.update_animation(get_state_name(), input_component.move_dir)
+		
 func perform_attack() -> void:
 	current_state = PlayerState.ATTACK
 	
@@ -46,3 +55,5 @@ func get_state_name():
 			return "attack"
 		_:
 			return "idle"
+func _on_died() -> void:
+	print("Player Died!")

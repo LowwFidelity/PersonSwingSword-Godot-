@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b70ux28b7qal0" path="res://scene/player.tscn" id="1_5kiuu"]
 [ext_resource type="Texture2D" uid="uid://b46mlgkby3r40" path="res://assets/Tileset/Texture/TX Tileset Grass.png" id="1_33cqm"]
 [ext_resource type="Texture2D" uid="uid://dhiip7wi05b4e" path="res://assets/Tileset/Texture/TX Tileset Stone Ground.png" id="2_xwcet"]
+[ext_resource type="PackedScene" uid="uid://cmkicfql4735n" path="res://scene/enemy.tscn" id="4_p1ry8"]
 [ext_resource type="PackedScene" uid="uid://cnpyuu8pre8ef" path="res://scene/inventory.tscn" id="4_xwcet"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p1ry8"]
@@ -143,6 +144,9 @@ layer_0/tile_data = PackedInt32Array(-1, 0, 1, -65536, 0, 1, 0, 0, 1, 65535, 0, 
 
 [node name="Player" parent="." unique_id=1464490526 instance=ExtResource("1_5kiuu")]
 position = Vector2(-2, -1)
+
+[node name="Enemy" parent="." unique_id=966632182 instance=ExtResource("4_p1ry8")]
+position = Vector2(-182, 91)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=958995714]
 

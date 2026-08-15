@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://c0q5lypg3eqi7" path="res://assets/FREE_Adventurer 2D Pixel Art/Sprites/RUN/run_up.png" id="9_dk1vr"]
 [ext_resource type="Script" uid="uid://g6hiqpaao78n" path="res://script/input_component.gd" id="13_34jf3"]
 [ext_resource type="Script" uid="uid://bddu7irjkiput" path="res://script/movement_component.gd" id="15_j4wxg"]
+[ext_resource type="Script" uid="uid://du0bb057ov7ih" path="res://script/health_component.gd" id="16_4ja17"]
 [ext_resource type="Script" uid="uid://bf7rtc8liqpu6" path="res://script/animation_component.gd" id="16_bup7g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w8280"]
@@ -783,6 +784,11 @@ script = ExtResource("15_j4wxg")
 body = NodePath("..")
 sprite = NodePath("../AnimatedSprite2D")
 metadata/_custom_type_script = "uid://bddu7irjkiput"
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1486994223]
+unique_name_in_owner = true
+script = ExtResource("16_4ja17")
+metadata/_custom_type_script = "uid://du0bb057ov7ih"
 
 [node name="AnimationComponent" type="Node" parent="." unique_id=1176676740 node_paths=PackedStringArray("sprite")]
 script = ExtResource("16_bup7g")

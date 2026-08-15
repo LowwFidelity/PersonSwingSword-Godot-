@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cmkicfql4735n"]
 
-[ext_resource type="Script" uid="uid://bosnyp20h2p55" path="res://script/enemy.gd" id="1_b7koy"]
+[ext_resource type="Script" uid="uid://du0bb057ov7ih" path="res://script/health_component.gd" id="1_b7koy"]
 [ext_resource type="Texture2D" uid="uid://drmnkoaqeulh" path="res://assets/Jack/Jack full.png" id="2_yvcfn"]
 [ext_resource type="Script" uid="uid://bf7rtc8liqpu6" path="res://script/animation_component.gd" id="3_ulb22"]
 [ext_resource type="Script" uid="uid://bddu7irjkiput" path="res://script/movement_component.gd" id="4_1e552"]
@@ -353,8 +353,14 @@ sprite = NodePath("../AnimatedSprite2D")
 metadata/_custom_type_script = "uid://bf7rtc8liqpu6"
 
 [node name="MovementComponent" type="Node" parent="." unique_id=453287450]
+unique_name_in_owner = true
 script = ExtResource("4_1e552")
 metadata/_custom_type_script = "uid://bddu7irjkiput"
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1627529280]
+unique_name_in_owner = true
+script = ExtResource("1_b7koy")
+metadata/_custom_type_script = "uid://du0bb057ov7ih"
 
 [node name="Agrro" type="Area2D" parent="." unique_id=1003748685]
 

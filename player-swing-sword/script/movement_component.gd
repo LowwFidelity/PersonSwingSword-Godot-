@@ -6,7 +6,7 @@ class_name MovementComponent extends Node
 
 var direction : Vector2 = Vector2.ZERO
 
-func tick(delta : float) -> void:
+func tick(_delta : float) -> void:
 	if body == null:
 		return
 	
