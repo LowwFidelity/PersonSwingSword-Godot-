@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b46mlgkby3r40" path="res://assets/Tileset/Texture/TX Tileset Grass.png" id="1_33cqm"]
 [ext_resource type="Texture2D" uid="uid://dhiip7wi05b4e" path="res://assets/Tileset/Texture/TX Tileset Stone Ground.png" id="2_xwcet"]
 [ext_resource type="PackedScene" uid="uid://cnpyuu8pre8ef" path="res://scene/inventory.tscn" id="4_xwcet"]
+[ext_resource type="PackedScene" uid="uid://cmkicfql4735n" path="res://scene/enemy.tscn" id="5_p1ry8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p1ry8"]
 texture = ExtResource("1_33cqm")
@@ -151,3 +152,6 @@ offset_left = -194.0
 offset_top = -111.0
 offset_right = -91.0
 offset_bottom = -77.0
+
+[node name="Enemy" parent="." unique_id=966632182 instance=ExtResource("5_p1ry8")]
+position = Vector2(111, -14)

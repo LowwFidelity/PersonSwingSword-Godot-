@@ -18,7 +18,7 @@ func _physics_process(delta: float) -> void:
 	# Only update movement and idle/run state if not currently attacking
 	if current_state != PlayerState.ATTACK:
 		movement_component.direction = input_component.move_dir
-		movement_component.tick(delta)
+		movement_component.move(delta)
 		
 		if input_component.move_dir != Vector2.ZERO:
 			current_state = PlayerState.RUN
@@ -26,6 +26,7 @@ func _physics_process(delta: float) -> void:
 			current_state = PlayerState.IDLE
 			
 		animation_component.update_animation(get_state_name(), input_component.move_dir)
+
 func perform_attack() -> void:
 	current_state = PlayerState.ATTACK
 	
