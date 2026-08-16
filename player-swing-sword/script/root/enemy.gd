@@ -7,14 +7,16 @@ var current_state : EnemyState = EnemyState.IDLE
 @onready var movement_component: MovementComponent = $MovementComponent
 @onready var chase_component: ChaseComponent = $ChaseComponent
 @onready var animation_component: AnimationComponent = $AnimationComponent
-@export var enemy_speed: float = 80.0
+@export var enemy_speed: float = 70.0
 
 func _physics_process(delta: float) -> void:
 	if detection_component.detected:
 		chase_component.chase()
+		current_state = EnemyState.RUN
 	else:
 		chase_component.idle()
-		
+		current_state = EnemyState.IDLE
+	
 	movement_component.direction = chase_component.direction
 	movement_component.move(delta, enemy_speed)
 	
