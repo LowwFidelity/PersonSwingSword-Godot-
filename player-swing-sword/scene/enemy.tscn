@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://cmkicfql4735n"]
 
-[ext_resource type="Script" uid="uid://du0bb057ov7ih" path="res://script/health_component.gd" id="1_b7koy"]
+[ext_resource type="Script" uid="uid://bosnyp20h2p55" path="res://script/root/enemy.gd" id="1_b7koy"]
 [ext_resource type="Texture2D" uid="uid://drmnkoaqeulh" path="res://assets/Jack/Jack full.png" id="2_yvcfn"]
-[ext_resource type="Script" uid="uid://bf7rtc8liqpu6" path="res://script/animation_component.gd" id="3_ulb22"]
-[ext_resource type="Script" uid="uid://bddu7irjkiput" path="res://script/movement_component.gd" id="4_1e552"]
+[ext_resource type="Script" uid="uid://bf7rtc8liqpu6" path="res://script/components/animation_component.gd" id="3_ulb22"]
+[ext_resource type="Script" uid="uid://bddu7irjkiput" path="res://script/components/movement_component.gd" id="4_1e552"]
+[ext_resource type="Script" uid="uid://tt5ajv8uo2dx" path="res://script/components/detection_componenet.gd" id="5_yvcfn"]
+[ext_resource type="Script" uid="uid://b7u3yc86obawk" path="res://script/components/chase_componenet.gd" id="6_ulb22"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vgurf"]
 atlas = ExtResource("2_yvcfn")
@@ -228,7 +230,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_6bka5")
 }],
 "loop": 1,
-"name": &"walk_down",
+"name": &"run_down",
 "speed": 10.0
 }, {
 "frames": [{
@@ -260,7 +262,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_32dru")
 }],
 "loop": 1,
-"name": &"walk_left",
+"name": &"run_left",
 "speed": 10.0
 }, {
 "frames": [{
@@ -292,7 +294,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_kgj4v")
 }],
 "loop": 1,
-"name": &"walk_right",
+"name": &"run_right",
 "speed": 10.0
 }, {
 "frames": [{
@@ -324,7 +326,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_yyob4")
 }],
 "loop": 1,
-"name": &"walk_up",
+"name": &"run_up",
 "speed": 10.0
 }]
 
@@ -332,37 +334,46 @@ animations = [{
 radius = 10.049875
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_agyp5"]
-radius = 55.0
+radius = 44.04543
 
 [node name="Enemy" type="CharacterBody2D" unique_id=966632182]
+collision_layer = 2
+motion_mode = 1
 script = ExtResource("1_b7koy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1891060657]
 sprite_frames = SubResource("SpriteFrames_agyp5")
-animation = &"walk_up"
+animation = &"run_down"
 autoplay = "idle_down"
-frame = 3
-frame_progress = 0.56263304
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1335449001]
 shape = SubResource("CircleShape2D_b2irg")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=6962230]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1881186009]
+shape = SubResource("CircleShape2D_agyp5")
 
 [node name="AnimationComponent" type="Node" parent="." unique_id=847176661 node_paths=PackedStringArray("sprite")]
 script = ExtResource("3_ulb22")
 sprite = NodePath("../AnimatedSprite2D")
 metadata/_custom_type_script = "uid://bf7rtc8liqpu6"
 
-[node name="MovementComponent" type="Node" parent="." unique_id=453287450]
-unique_name_in_owner = true
+[node name="MovementComponent" type="Node" parent="." unique_id=453287450 node_paths=PackedStringArray("body")]
 script = ExtResource("4_1e552")
+body = NodePath("..")
 metadata/_custom_type_script = "uid://bddu7irjkiput"
 
-[node name="HealthComponent" type="Node" parent="." unique_id=1627529280]
-unique_name_in_owner = true
-script = ExtResource("1_b7koy")
-metadata/_custom_type_script = "uid://du0bb057ov7ih"
+[node name="DetectionComponent" type="Node" parent="." unique_id=2131768969 node_paths=PackedStringArray("detection_area")]
+script = ExtResource("5_yvcfn")
+detection_area = NodePath("../Area2D")
+metadata/_custom_type_script = "uid://tt5ajv8uo2dx"
 
-[node name="Agrro" type="Area2D" parent="." unique_id=1003748685]
+[node name="ChaseComponent" type="Node" parent="." unique_id=388682123]
+script = ExtResource("6_ulb22")
+metadata/_custom_type_script = "uid://b7u3yc86obawk"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Agrro" unique_id=1309365919]
-shape = SubResource("CircleShape2D_agyp5")
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D" to="ChaseComponent" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
