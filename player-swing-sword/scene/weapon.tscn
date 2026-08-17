@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cjvtlhmqkjasr"]
 
 [ext_resource type="Script" uid="uid://cqcf13kxhhrb5" path="res://scene/weapon.gd" id="1_7flqi"]
+[ext_resource type="Script" uid="uid://6vyvt5elpfao" path="res://scene/hitbox.gd" id="2_kchcj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2cii3"]
 size = Vector2(38, 22)
@@ -11,3 +12,4 @@ script = ExtResource("1_7flqi")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=495295531]
 position = Vector2(0, 11)
 shape = SubResource("RectangleShape2D_2cii3")
+script = ExtResource("2_kchcj")

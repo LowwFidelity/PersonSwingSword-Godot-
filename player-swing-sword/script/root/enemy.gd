@@ -3,6 +3,7 @@ class_name Enemy extends CharacterBody2D
 enum EnemyState { IDLE, RUN, ATTACK }
 var current_state : EnemyState = EnemyState.IDLE
 
+@onready var health_component : HealthComponent = %HealthComponent
 @onready var detection_component : DetectionComponent = $DetectionComponent
 @onready var movement_component: MovementComponent = $MovementComponent
 @onready var chase_component: ChaseComponent = $ChaseComponent
