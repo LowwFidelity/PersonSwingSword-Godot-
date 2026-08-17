@@ -42,3 +42,6 @@ func get_state_name():
 			return "attack"
 		_:
 			return "idle"
+
+func _on_died():
+		queue_free()

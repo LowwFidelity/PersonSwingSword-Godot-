@@ -14,7 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://bj5royiunfd1q" path="res://assets/FREE_Adventurer 2D Pixel Art/Sprites/RUN/run_right.png" id="8_ihjo1"]
 [ext_resource type="Texture2D" uid="uid://c0q5lypg3eqi7" path="res://assets/FREE_Adventurer 2D Pixel Art/Sprites/RUN/run_up.png" id="9_dk1vr"]
 [ext_resource type="Script" uid="uid://g6hiqpaao78n" path="res://script/components/input_component.gd" id="13_34jf3"]
+[ext_resource type="PackedScene" uid="uid://cjvtlhmqkjasr" path="res://scene/weapon.tscn" id="14_v4iqv"]
 [ext_resource type="Script" uid="uid://bddu7irjkiput" path="res://script/components/movement_component.gd" id="15_j4wxg"]
+[ext_resource type="Script" uid="uid://du0bb057ov7ih" path="res://script/health_component.gd" id="16_4ja17"]
 [ext_resource type="Script" uid="uid://bf7rtc8liqpu6" path="res://script/components/animation_component.gd" id="16_bup7g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w8280"]
@@ -773,6 +775,8 @@ shape = SubResource("CircleShape2D_b2irg")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1282975831]
 zoom = Vector2(3, 3)
 
+[node name="Weapon" parent="." unique_id=1402344608 instance=ExtResource("14_v4iqv")]
+
 [node name="InputComponent" type="Node" parent="." unique_id=1674661432]
 unique_name_in_owner = true
 script = ExtResource("13_34jf3")
@@ -783,6 +787,11 @@ unique_name_in_owner = true
 script = ExtResource("15_j4wxg")
 body = NodePath("..")
 metadata/_custom_type_script = "uid://bddu7irjkiput"
+
+[node name="HealthComponent" type="Node" parent="." unique_id=394172340]
+unique_name_in_owner = true
+script = ExtResource("16_4ja17")
+metadata/_custom_type_script = "uid://du0bb057ov7ih"
 
 [node name="AnimationComponent" type="Node" parent="." unique_id=1176676740 node_paths=PackedStringArray("sprite")]
 script = ExtResource("16_bup7g")

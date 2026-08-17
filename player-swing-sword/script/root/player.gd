@@ -8,12 +8,11 @@ var current_state : PlayerState = PlayerState.IDLE
 @onready var health_component : HealthComponent = %HealthComponent
 @onready var animation_component: AnimationComponent = $AnimationComponent
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
-<<<<<<<< HEAD:player-swing-sword/script/player.gd
+
+@export var player_speed: float = 100.0
+
 func _ready() -> void:
 	health_component.died.connect(_on_died)
-========
-@export var player_speed: float = 100.0
->>>>>>>> Silver:player-swing-sword/script/root/player.gd
 
 func _physics_process(delta: float) -> void:
 	input_component.update()
@@ -39,11 +38,7 @@ func _physics_process(delta: float) -> void:
 			current_state = PlayerState.IDLE
 			
 		animation_component.update_animation(get_state_name(), input_component.move_dir)
-<<<<<<<< HEAD:player-swing-sword/script/player.gd
 		
-========
-
->>>>>>>> Silver:player-swing-sword/script/root/player.gd
 func perform_attack() -> void:
 	current_state = PlayerState.ATTACK
 	
