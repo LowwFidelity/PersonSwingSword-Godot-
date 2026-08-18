@@ -8,6 +8,7 @@ var current_state : EnemyState = EnemyState.IDLE
 @onready var movement_component: MovementComponent = $MovementComponent
 @onready var chase_component: ChaseComponent = $ChaseComponent
 @onready var animation_component: AnimationComponent = $AnimationComponent
+
 @export var enemy_speed: float = 70.0
 
 func _physics_process(delta: float) -> void:
@@ -23,14 +24,19 @@ func _physics_process(delta: float) -> void:
 	
 	animation_component.update_animation(get_state_name(), chase_component.direction)
 
-
-func _on_area_2d_body_entered(_body: Node2D) -> void:
-	detection_component.detected = true
+func _on_area_2d_body_entered(_body: Player) -> void:
+	if Player == null:
+		return
+	else:
+		detection_component.detected = true
 	#print(detection_component.detected)
 
 
-func _on_area_2d_body_exited(_body: Node2D) -> void:
-	detection_component.detected = false
+func _on_area_2d_body_exited(_body: Player) -> void:
+		if Player == null:
+			return
+		else:
+			detection_component.detected = false
 	#print(detection_component.detected)
 	
 func get_state_name():
@@ -44,5 +50,5 @@ func get_state_name():
 		_:
 			return "idle"
 
-func _on_died():
+func _on_died() -> void:
 		queue_free()

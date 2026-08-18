@@ -2,15 +2,13 @@
 
 [ext_resource type="Script" uid="uid://bosnyp20h2p55" path="res://script/root/enemy.gd" id="1_b7koy"]
 [ext_resource type="Texture2D" uid="uid://drmnkoaqeulh" path="res://assets/Jack/Jack full.png" id="2_yvcfn"]
-[ext_resource type="Script" uid="uid://du0bb057ov7ih" path="res://script/components/health_component.gd" id="3_1e552"]
+[ext_resource type="Script" uid="uid://du0bb057ov7ih" path="res://script/health_component.gd" id="3_1e552"]
 [ext_resource type="Script" uid="uid://ba4b6c3du7aop" path="res://script/hurtbox.gd" id="3_kqmod"]
 [ext_resource type="Script" uid="uid://bf7rtc8liqpu6" path="res://script/components/animation_component.gd" id="3_ulb22"]
 [ext_resource type="Script" uid="uid://bddu7irjkiput" path="res://script/components/movement_component.gd" id="4_1e552"]
 [ext_resource type="Script" uid="uid://tt5ajv8uo2dx" path="res://script/components/detection_componenet.gd" id="5_yvcfn"]
 [ext_resource type="Script" uid="uid://b7u3yc86obawk" path="res://script/components/chase_componenet.gd" id="6_ulb22"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2cii3"]
-height = 28.0
+[ext_resource type="Script" uid="uid://dgs8smi317cv3" path="res://scene/hit_detection.gd" id="8_vgurf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vgurf"]
 atlas = ExtResource("2_yvcfn")
@@ -346,24 +344,21 @@ collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_b7koy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=521457346]
-shape = SubResource("CapsuleShape2D_2cii3")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1891060657]
 sprite_frames = SubResource("SpriteFrames_agyp5")
 animation = &"run_down"
 autoplay = "idle_down"
 
-[node name="HurtBox" type="Area2D" parent="AnimatedSprite2D" unique_id=846956622]
+[node name="HurtBox" type="Area2D" parent="." unique_id=846956622]
 script = ExtResource("3_kqmod")
 
-[node name="EnemyHurtboxCollision" type="CollisionShape2D" parent="AnimatedSprite2D/HurtBox" unique_id=1335449001]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1335449001]
 shape = SubResource("CapsuleShape2D_xipkr")
 
 [node name="AggroRange" type="Area2D" parent="." unique_id=6962230]
 collision_layer = 0
 
-[node name="AggroCollisionRange" type="CollisionShape2D" parent="AggroRange" unique_id=1881186009]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AggroRange" unique_id=1881186009]
 shape = SubResource("CircleShape2D_agyp5")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1214170943]
@@ -389,6 +384,9 @@ metadata/_custom_type_script = "uid://tt5ajv8uo2dx"
 [node name="ChaseComponent" type="Node" parent="." unique_id=388682123]
 script = ExtResource("6_ulb22")
 metadata/_custom_type_script = "uid://b7u3yc86obawk"
+
+[node name="HitDetection" type="Node" parent="." unique_id=788121788]
+script = ExtResource("8_vgurf")
 
 [connection signal="body_entered" from="AggroRange" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="AggroRange" to="ChaseComponent" method="_on_area_2d_body_entered"]

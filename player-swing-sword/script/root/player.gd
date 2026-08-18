@@ -21,6 +21,7 @@ func _physics_process(delta: float) -> void:
 		perform_attack()
 		return
 	
+	#Change this to hitbox detection
 	if input_component.hurt_pressed:
 		health_component.damage(10)
 		
