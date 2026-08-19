@@ -11,6 +11,9 @@ var current_state : EnemyState = EnemyState.IDLE
 
 @export var enemy_speed: float = 70.0
 
+func _ready() -> void:
+	health_component.died.connect(_on_died)
+
 func _physics_process(delta: float) -> void:
 	if detection_component.detected:
 		chase_component.chase()

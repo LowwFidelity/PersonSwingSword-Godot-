@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cjvtlhmqkjasr"]
 
-[ext_resource type="Script" uid="uid://cat1kef72u33t" path="res://scene/weapon.gd" id="1_1df6x"]
+[ext_resource type="Script" uid="uid://cat1kef72u33t" path="res://script/root/weapon.gd" id="1_1df6x"]
 [ext_resource type="Texture2D" uid="uid://dcvfcxa8gw1uh" path="res://assets/Jack/Sword of aeons.png" id="2_kchcj"]
 [ext_resource type="Script" uid="uid://6vyvt5elpfao" path="res://script/hitbox.gd" id="3_1df6x"]
 
