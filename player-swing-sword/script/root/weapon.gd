@@ -1,11 +1,13 @@
 class_name Weapon extends Node2D
 
+@onready var weapon_swing : WeaponSwing = $WeaponSwing
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+var finished : bool = false
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	var mouse_pos = get_global_mouse_position()
+	look_at(mouse_pos)
+
+func animation_finished() -> void:
+	if weapon_swing.animation_finished:
+		return
