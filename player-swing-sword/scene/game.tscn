@@ -2,9 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://b70ux28b7qal0" path="res://scene/player.tscn" id="1_5kiuu"]
 [ext_resource type="Texture2D" uid="uid://b46mlgkby3r40" path="res://assets/Tileset/Texture/TX Tileset Grass.png" id="1_33cqm"]
+[ext_resource type="Script" uid="uid://b4ppprbikvgi1" path="res://scene/game.gd" id="1_qpk70"]
 [ext_resource type="Texture2D" uid="uid://dhiip7wi05b4e" path="res://assets/Tileset/Texture/TX Tileset Stone Ground.png" id="2_xwcet"]
 [ext_resource type="PackedScene" uid="uid://cnpyuu8pre8ef" path="res://scene/inventory.tscn" id="4_xwcet"]
 [ext_resource type="PackedScene" uid="uid://cmkicfql4735n" path="res://scene/enemy.tscn" id="5_p1ry8"]
+[ext_resource type="PackedScene" uid="uid://x2d71ba1y17g" path="res://scene/PauseMenu.tscn" id="6_ll5lq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p1ry8"]
 texture = ExtResource("1_33cqm")
@@ -136,6 +138,7 @@ sources/0 = SubResource("TileSetAtlasSource_p1ry8")
 sources/1 = SubResource("TileSetAtlasSource_xlg7c")
 
 [node name="Game" type="Node2D" unique_id=985180898]
+script = ExtResource("1_qpk70")
 
 [node name="TileMap" type="TileMap" parent="." unique_id=896850167]
 tile_set = SubResource("TileSet_agyp5")
@@ -148,10 +151,15 @@ position = Vector2(-2, -1)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=958995714]
 
 [node name="Inventory" parent="CanvasLayer" unique_id=172901817 instance=ExtResource("4_xwcet")]
-offset_left = -194.0
-offset_top = -111.0
-offset_right = -91.0
-offset_bottom = -77.0
+process_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=797441628 instance=ExtResource("6_ll5lq")]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Enemy" parent="." unique_id=966632182 instance=ExtResource("5_p1ry8")]
 position = Vector2(111, -14)

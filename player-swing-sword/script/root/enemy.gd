@@ -18,11 +18,11 @@ func _ready() -> void:
 	health_component.health_changed.connect(_on_health_changed)
 
 func _physics_process(delta: float) -> void:
-	if current_state != EnemyState.ATTACK and current_state != EnemyState.HURT:
+	if current_state != EnemyState.ATTACK:
 		movement_component.direction = chase_component.direction
 		movement_component.move(delta, enemy_speed)
 		
-		if detection_component.detected:
+		if detection_component.detected and current_state != EnemyState.HURT:
 			chase_component.chase()
 			current_state = EnemyState.RUN
 		else:

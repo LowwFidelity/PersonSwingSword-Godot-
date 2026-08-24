@@ -37,7 +37,7 @@ func _physics_process(delta: float) -> void:
 			current_state = PlayerState.IDLE
 			
 		animation_component.update_animation(get_state_name(), input_component.move_dir)
-		weapon.weapon_swing.update_animation(get_state_name(), input_component.move_dir)
+		weapon.weapon_swing.last_dir = weapon.weapon_swing.get_string_direction(input_component.move_dir)
 		
 
 func _on_health_changed() -> void:
