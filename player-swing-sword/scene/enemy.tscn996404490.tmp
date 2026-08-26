@@ -2,17 +2,13 @@
 
 [ext_resource type="Script" uid="uid://bosnyp20h2p55" path="res://script/root/enemy.gd" id="1_b7koy"]
 [ext_resource type="Texture2D" uid="uid://drmnkoaqeulh" path="res://assets/Jack/Jack full.png" id="2_yvcfn"]
-[ext_resource type="Script" uid="uid://du0bb057ov7ih" path="res://script/components/health_component.gd" id="3_1e552"]
+[ext_resource type="Script" uid="uid://du0bb057ov7ih" path="res://script/health_component.gd" id="3_1e552"]
 [ext_resource type="Script" uid="uid://ba4b6c3du7aop" path="res://script/hurtbox.gd" id="3_kqmod"]
 [ext_resource type="Script" uid="uid://bf7rtc8liqpu6" path="res://script/components/animation_component.gd" id="3_ulb22"]
 [ext_resource type="Script" uid="uid://bddu7irjkiput" path="res://script/components/movement_component.gd" id="4_1e552"]
 [ext_resource type="Script" uid="uid://tt5ajv8uo2dx" path="res://script/components/detection_componenet.gd" id="5_yvcfn"]
 [ext_resource type="Script" uid="uid://b7u3yc86obawk" path="res://script/components/chase_componenet.gd" id="6_ulb22"]
-[ext_resource type="Script" uid="uid://bl4pui2xggi2g" path="res://script/animation_script/health_change.gd" id="9_kqmod"]
-[ext_resource type="AnimationLibrary" uid="uid://ki710dvmjyx3" path="res://assets/animations/Animations.res" id="9_qhqle"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2cii3"]
-height = 28.0
+[ext_resource type="Script" uid="uid://dgs8smi317cv3" path="res://scene/hit_detection.gd" id="8_vgurf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vgurf"]
 atlas = ExtResource("2_yvcfn")
@@ -343,117 +339,30 @@ height = 28.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_agyp5"]
 radius = 44.04543
 
-[sub_resource type="Animation" id="Animation_qhqle"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -14)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite2D:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("AnimatedSprite2D/HurtBox:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("AnimatedSprite2D/HurtBox:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("AnimatedSprite2D/HurtBox:monitoring")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_pw261"]
-_data = {
-&"RESET": SubResource("Animation_qhqle")
-}
-
 [node name="Enemy" type="CharacterBody2D" unique_id=966632182]
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_b7koy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=521457346]
-position = Vector2(0, -18)
-shape = SubResource("CapsuleShape2D_2cii3")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1891060657]
-position = Vector2(0, -14)
-scale = Vector2(1, 0.984375)
 sprite_frames = SubResource("SpriteFrames_agyp5")
-animation = &"idle_down"
+animation = &"run_down"
 autoplay = "idle_down"
 
-[node name="HurtBox" type="Area2D" parent="AnimatedSprite2D" unique_id=846956622]
+[node name="HurtBox" type="Area2D" parent="." unique_id=846956622]
 script = ExtResource("3_kqmod")
 
-[node name="HurtboxCollision" type="CollisionShape2D" parent="AnimatedSprite2D/HurtBox" unique_id=1335449001]
-position = Vector2(0, 1.7881393e-06)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1335449001]
 shape = SubResource("CapsuleShape2D_xipkr")
 
 [node name="AggroRange" type="Area2D" parent="." unique_id=6962230]
 collision_layer = 0
 
-[node name="AggroCollisionRange" type="CollisionShape2D" parent="AggroRange" unique_id=1881186009]
-position = Vector2(1, -18)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AggroRange" unique_id=1881186009]
 shape = SubResource("CircleShape2D_agyp5")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1214170943]
+unique_name_in_owner = true
 script = ExtResource("3_1e552")
 metadata/_custom_type_script = "uid://du0bb057ov7ih"
 
@@ -476,12 +385,8 @@ metadata/_custom_type_script = "uid://tt5ajv8uo2dx"
 script = ExtResource("6_ulb22")
 metadata/_custom_type_script = "uid://b7u3yc86obawk"
 
-[node name="HealthChange" type="AnimationPlayer" parent="." unique_id=1305135990 node_paths=PackedStringArray("sprite")]
-libraries/ = SubResource("AnimationLibrary_pw261")
-libraries/Animations = ExtResource("9_qhqle")
-script = ExtResource("9_kqmod")
-sprite = NodePath("../AnimatedSprite2D")
-metadata/_custom_type_script = "uid://bl4pui2xggi2g"
+[node name="HitDetection" type="Node" parent="." unique_id=788121788]
+script = ExtResource("8_vgurf")
 
 [connection signal="body_entered" from="AggroRange" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="AggroRange" to="ChaseComponent" method="_on_area_2d_body_entered"]

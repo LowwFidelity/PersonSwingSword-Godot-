@@ -1,4 +1,4 @@
-extends Control
+class_name Inventory extends Control
 
 @onready var menu : ColorRect = $ColorRect
 var is_inventory_open :bool = false
