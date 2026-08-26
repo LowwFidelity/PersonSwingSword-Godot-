@@ -337,19 +337,24 @@ radius = 10.049875
 radius = 44.04543
 
 [node name="Enemy" type="CharacterBody2D" unique_id=966632182]
+y_sort_enabled = true
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_b7koy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1891060657]
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_agyp5")
-animation = &"run_down"
+animation = &"idle_down"
 autoplay = "idle_down"
+offset = Vector2(0, -15)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1335449001]
+position = Vector2(0, -11)
 shape = SubResource("CircleShape2D_b2irg")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=6962230]
+position = Vector2(0, -11)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1881186009]

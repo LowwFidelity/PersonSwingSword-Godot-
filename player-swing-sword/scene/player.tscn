@@ -752,23 +752,27 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_b2irg"]
-radius = 8.062258
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bup7g"]
+radius = 7.0
+height = 26.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1464490526]
-collision_mask = 2
+y_sort_enabled = true
+collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_hjaqi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=389933585]
-position = Vector2(0, -18)
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_agyp5")
 animation = &"attack_down"
 autoplay = "idle_down"
+offset = Vector2(0, -18)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=857254195]
+z_index = 1
 position = Vector2(0, -13)
-shape = SubResource("CircleShape2D_b2irg")
+shape = SubResource("CapsuleShape2D_bup7g")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1282975831]
 zoom = Vector2(3, 3)

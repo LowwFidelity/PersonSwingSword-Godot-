@@ -8,6 +8,7 @@ var current_state : PlayerState = PlayerState.IDLE
 @onready var animation_component: AnimationComponent = $AnimationComponent
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 @export var player_speed: float = 100.0
+@export var speed_boost: float = player_speed * 1.2
 
 func _physics_process(delta: float) -> void:
 	input_component.update()
@@ -20,6 +21,9 @@ func _physics_process(delta: float) -> void:
 	if current_state != PlayerState.ATTACK:
 		movement_component.direction = input_component.move_dir
 		movement_component.move(delta, player_speed)
+		if input_component.sprint:
+			movement_component.direction = input_component.move_dir
+			movement_component.move(delta, speed_boost)
 		
 		if input_component.move_dir != Vector2.ZERO:
 			current_state = PlayerState.RUN
