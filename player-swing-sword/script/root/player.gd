@@ -8,12 +8,12 @@ var current_state : PlayerState = PlayerState.IDLE
 @onready var animation_component: AnimationComponent = $AnimationComponent
 @onready var health_component : HealthComponent = $HealthComponent
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
-@onready var hurtbox: Hurtbox = $AnimatedSprite2D/HurtBox
 @onready var health_change : HealthChange = $HealthChange
 @onready var weapon: Weapon = $Weapon
 
 @export var player_speed: float = 100.0
 @export var speed_boost: float = player_speed * 1.2
+var direction: Vector2
 
 func _ready() -> void:
 	health_component.died.connect(_on_player_died)
@@ -29,11 +29,11 @@ func _physics_process(delta: float) -> void:
 	
 	# Only update movement and idle/run state if not currently attacking
 	if current_state != PlayerState.ATTACK and current_state != PlayerState.HURT:
-		movement_component.direction = input_component.move_dir
-		movement_component.move(delta, player_speed)
+		direction = input_component.move_dir
+		movement_component.move(direction)
 		if input_component.sprint:
-			movement_component.direction = input_component.move_dir
-			movement_component.move(delta, speed_boost)
+			direction = input_component.move_dir
+			movement_component.move(direction)
 		
 		if input_component.move_dir != Vector2.ZERO:
 			current_state = PlayerState.RUN

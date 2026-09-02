@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cat1kef72u33t" path="res://script/root/weapon.gd" id="1_1df6x"]
 [ext_resource type="Texture2D" uid="uid://dcvfcxa8gw1uh" path="res://assets/Jack/Sword of aeons.png" id="2_kchcj"]
-[ext_resource type="Script" uid="uid://6vyvt5elpfao" path="res://script/hitbox.gd" id="3_1df6x"]
+[ext_resource type="Script" uid="uid://bps3n63e6i0ag" path="res://script/components/hitbox_component.gd" id="3_urpyb"]
 [ext_resource type="Script" uid="uid://53abnoll8ju7" path="res://script/animation_script/weapon_swing.gd" id="4_urpyb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2cii3"]
@@ -26,46 +26,34 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D/Hitbox/CollisionShape2D:disabled")
+tracks/1/path = NodePath(".:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath(".:visible")
+tracks/2/path = NodePath("Sprite2D:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(),
 "transitions": PackedFloat32Array(),
 "update": 1,
 "values": []
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite2D:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -90,38 +78,38 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D/Hitbox/CollisionShape2D:disabled")
+tracks/1/path = NodePath(".:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 0.13333334),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0.033333335, 0.13333334),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [2.2078415037728267, -0.6073745796940269]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D/HitboxComponent/CollisionShape2D2:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.13333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7lstc"]
@@ -145,15 +133,20 @@ texture = ExtResource("2_kchcj")
 centered = false
 offset = Vector2(0, -32)
 
-[node name="Hitbox" type="Area2D" parent="Sprite2D" unique_id=1560975869]
-position = Vector2(25.246204, -25.223852)
-rotation = 6.2831855
-script = ExtResource("3_1df6x")
-metadata/_custom_type_script = "uid://6vyvt5elpfao"
+[node name="HitboxComponent" type="Area2D" parent="Sprite2D" unique_id=1550511314]
+position = Vector2(20.38037, -22.733978)
+rotation = -0.7853982
+scale = Vector2(0.98052573, 0.9893845)
+skew = 0.029423356
+collision_mask = 2
+script = ExtResource("3_urpyb")
+damage = 25
+metadata/_custom_type_script = "uid://bps3n63e6i0ag"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Hitbox" unique_id=1813260134]
-position = Vector2(0, 9.536743e-07)
-rotation = 0.7853982
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprite2D/HitboxComponent" unique_id=2062932259]
+rotation = 1.5861799
+scale = Vector2(1.0157452, 1.0157452)
+skew = -0.030766964
 shape = SubResource("CapsuleShape2D_2cii3")
 disabled = true
 
