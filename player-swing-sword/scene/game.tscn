@@ -2,11 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://b70ux28b7qal0" path="res://scene/player.tscn" id="1_5kiuu"]
 [ext_resource type="Texture2D" uid="uid://b46mlgkby3r40" path="res://assets/Tileset/Texture/TX Tileset Grass.png" id="1_33cqm"]
-[ext_resource type="Script" uid="uid://b4ppprbikvgi1" path="res://scene/game.gd" id="1_qpk70"]
+[ext_resource type="Script" uid="uid://b4ppprbikvgi1" path="res://script/root/game.gd" id="1_qpk70"]
 [ext_resource type="Texture2D" uid="uid://dhiip7wi05b4e" path="res://assets/Tileset/Texture/TX Tileset Stone Ground.png" id="2_xwcet"]
 [ext_resource type="PackedScene" uid="uid://cnpyuu8pre8ef" path="res://scene/inventory.tscn" id="4_xwcet"]
 [ext_resource type="PackedScene" uid="uid://cmkicfql4735n" path="res://scene/enemy.tscn" id="5_p1ry8"]
 [ext_resource type="PackedScene" uid="uid://x2d71ba1y17g" path="res://scene/PauseMenu.tscn" id="6_ll5lq"]
+[ext_resource type="PackedScene" uid="uid://dhlbulwx4eux" path="res://scene/GameOver.tscn" id="7_ll5lq"]
+[ext_resource type="Script" uid="uid://d2ou0lywn1i7y" path="res://script/root/game_over.gd" id="8_17rxn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p1ry8"]
 texture = ExtResource("1_33cqm")
@@ -155,11 +157,15 @@ process_mode = 3
 metadata/_edit_use_anchors_ = true
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=797441628 instance=ExtResource("6_ll5lq")]
+process_mode = 3
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 0.0
 offset_bottom = 0.0
 metadata/_edit_use_anchors_ = true
+
+[node name="GameOver" parent="CanvasLayer" unique_id=705714761 instance=ExtResource("7_ll5lq")]
+script = ExtResource("8_17rxn")
 
 [node name="Enemy" parent="." unique_id=966632182 instance=ExtResource("5_p1ry8")]
 position = Vector2(111, -14)

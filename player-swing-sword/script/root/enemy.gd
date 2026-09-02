@@ -15,7 +15,6 @@ var current_state : EnemyState = EnemyState.IDLE
 
 func _ready() -> void:
 	health_component.died.connect(_on_enemy_died)
-	health_component.health_changed.connect(_on_health_changed)
 
 func _physics_process(delta: float) -> void:
 	if current_state != EnemyState.ATTACK:
@@ -34,16 +33,6 @@ func _physics_process(delta: float) -> void:
 	movement_component.direction = chase_component.direction
 	
 	animation_component.update_animation(get_state_name(), chase_component.direction)
-
-func _on_health_changed() -> void:
-		if health_component.state == "hurt":
-			current_state = EnemyState.HURT
-			health_change.update_animation(get_state_name(), chase_component.direction)
-		elif health_component.state == "heal":
-			current_state = EnemyState.HEAL
-			health_change.update_animation(get_state_name(), chase_component.direction)
-
-			
 
 func _on_area_2d_body_entered(_body: Player) -> void:
 	if Player == null:

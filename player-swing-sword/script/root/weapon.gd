@@ -4,9 +4,10 @@ class_name Weapon extends Node2D
 
 var finished : bool = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var mouse_pos = get_global_mouse_position()
-	look_at(mouse_pos)
+	if owner.state_machine.active_state != "Attack":
+		look_at(mouse_pos)
 
 func animation_finished() -> void:
 	if weapon_swing.animation_finished:

@@ -8,8 +8,7 @@ func _ready() -> void:
 	area_entered.connect(_on_area_entered)
 	
 func _on_area_entered(hitbox: Hitbox) -> void:
-		if hitbox == null:
-			owner.health_component.state
+		if Hitbox == null:
 			return
 		if owner and "health_component" in owner:
 			owner.health_component.damage(hitbox.damage)

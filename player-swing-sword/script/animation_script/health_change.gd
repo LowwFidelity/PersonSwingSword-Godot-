@@ -5,9 +5,9 @@ class_name HealthChange extends AnimationPlayer
 @export var sprite : AnimatedSprite2D
 var last_dir : String = "down"
 
-func update_animation(state : String, dir : Vector2):
+func update_animation(dir : Vector2):
 	var direction : String = get_string_direction(dir)
-	var animation : String = "Animations/" + state + "_" + direction
+	var animation : String = "Animations/" + owner.state_machine.active_state + "_" + direction
 	play(animation)
 	
 

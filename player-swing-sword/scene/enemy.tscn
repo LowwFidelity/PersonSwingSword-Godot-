@@ -3,9 +3,11 @@
 [ext_resource type="Script" uid="uid://bosnyp20h2p55" path="res://script/root/enemy.gd" id="1_b7koy"]
 [ext_resource type="Texture2D" uid="uid://drmnkoaqeulh" path="res://assets/Jack/Jack full.png" id="2_yvcfn"]
 [ext_resource type="Script" uid="uid://du0bb057ov7ih" path="res://script/components/health_component.gd" id="3_1e552"]
-[ext_resource type="Script" uid="uid://ba4b6c3du7aop" path="res://script/hurtbox.gd" id="3_kqmod"]
+[ext_resource type="Script" uid="uid://ba4b6c3du7aop" path="res://script/hurtbox_component.gd" id="3_kqmod"]
 [ext_resource type="Script" uid="uid://bf7rtc8liqpu6" path="res://script/components/animation_component.gd" id="3_ulb22"]
 [ext_resource type="Script" uid="uid://bddu7irjkiput" path="res://script/components/movement_component.gd" id="4_1e552"]
+[ext_resource type="Script" uid="uid://do2qlfvn6ltw7" path="res://script/state_machine.gd" id="4_rs6j2"]
+[ext_resource type="Script" uid="uid://bypts2fgx2vxg" path="res://script/hurt.gd" id="5_0n578"]
 [ext_resource type="Script" uid="uid://tt5ajv8uo2dx" path="res://script/components/detection_componenet.gd" id="5_yvcfn"]
 [ext_resource type="Script" uid="uid://b7u3yc86obawk" path="res://script/components/chase_componenet.gd" id="6_ulb22"]
 [ext_resource type="Script" uid="uid://bl4pui2xggi2g" path="res://script/animation_script/health_change.gd" id="9_kqmod"]
@@ -452,6 +454,14 @@ collision_layer = 0
 [node name="AggroCollisionRange" type="CollisionShape2D" parent="AggroRange" unique_id=1881186009]
 position = Vector2(1, -18)
 shape = SubResource("CircleShape2D_agyp5")
+
+[node name="StateMachine" type="Node" parent="." unique_id=1535657643]
+script = ExtResource("4_rs6j2")
+metadata/_custom_type_script = "uid://do2qlfvn6ltw7"
+
+[node name="Hurt" type="Node" parent="StateMachine" unique_id=49046955]
+script = ExtResource("5_0n578")
+metadata/_custom_type_script = "uid://cvd88iqakxql7"
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1214170943]
 script = ExtResource("3_1e552")

@@ -8,8 +8,6 @@ var radius:= 0
 func chase():
 	direction = (target.global_position - parent.global_position).normalized()
 
-
-
 func idle():
 	direction = Vector2.ZERO
 
