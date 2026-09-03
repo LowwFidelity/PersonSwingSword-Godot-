@@ -383,13 +383,13 @@ script = ExtResource("3_1e552")
 metadata/_custom_type_script = "uid://du0bb057ov7ih"
 
 [node name="HitboxComponent" type="Area2D" parent="." unique_id=734517509]
-collision_layer = 2
 script = ExtResource("7_pw261")
+damage = 25
 metadata/_custom_type_script = "uid://bps3n63e6i0ag"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=911179884]
 position = Vector2(0, -13.855)
-rotation = 1.5934856
+rotation = 1.5707964
 shape = SubResource("SeparationRayShape2D_agyp5")
 
 [node name="HurtboxComponent" type="Area2D" parent="." unique_id=1182441373]

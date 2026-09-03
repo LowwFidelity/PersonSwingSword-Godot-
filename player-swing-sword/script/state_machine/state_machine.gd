@@ -16,7 +16,6 @@ func _ready() -> void:
 			states[child.name.to_lower()] = child
 			child.parent = parent
 			
-	await parent.ready
 	if initial_state:
 		initial_state.enter_state()
 		active_state = initial_state

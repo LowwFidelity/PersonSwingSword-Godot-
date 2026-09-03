@@ -8,6 +8,7 @@ class_name Enemy extends CharacterBody2D
 @onready var animation_component: AnimationComponent = $AnimationComponent
 @onready var health_component : HealthComponent = $HealthComponent
 @onready var hurtbox_component: HurtboxComponent = $HurtboxComponent
+@onready var hitbox_component: HitboxComponent = $HitboxComponent
 @onready var state_machine: StateMachine = $StateMachine
 
 #@export var enemy_speed: float = 70.0

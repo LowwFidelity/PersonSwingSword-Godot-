@@ -1,8 +1,8 @@
 class_name HurtboxComponent extends Area2D
 
-func _on_area_entered(area: HitboxComponent) -> void:
-	if HitboxComponent == null:
+signal took_damage(dmg: int)
+
+func _on_area_entered(area: Area2D) -> void:
+	if area is not HitboxComponent:
 		return
-	
-	if area is HitboxComponent:
-		owner.health_component.damage(area.damage)
+	owner.health_component.take_damage(area.damage)
