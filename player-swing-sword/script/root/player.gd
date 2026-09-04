@@ -57,7 +57,7 @@ func perform_attack() -> void:
 	current_state = PlayerState.ATTACK
 	
 	animation_component.update_animation(get_state_name(), input_component.move_dir)
-	weapon.weapon_swing.update_animation(get_state_name(), input_component.move_dir)
+	weapon.weapon_swing.update_animation()
 	
 	await animated_sprite.animation_finished
 	

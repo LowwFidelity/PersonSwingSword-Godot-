@@ -342,6 +342,7 @@ animations = [{
 radius = 44.04543
 
 [sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_agyp5"]
+length = 25.0
 
 [node name="Enemy" type="CharacterBody2D" unique_id=966632182]
 collision_layer = 2
@@ -383,13 +384,13 @@ script = ExtResource("3_1e552")
 metadata/_custom_type_script = "uid://du0bb057ov7ih"
 
 [node name="HitboxComponent" type="Area2D" parent="." unique_id=734517509]
+position = Vector2(0, -14)
 script = ExtResource("7_pw261")
 damage = 25
 metadata/_custom_type_script = "uid://bps3n63e6i0ag"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=911179884]
-position = Vector2(0, -13.855)
-rotation = 1.5707964
+rotation = -1.5707964
 shape = SubResource("SeparationRayShape2D_agyp5")
 
 [node name="HurtboxComponent" type="Area2D" parent="." unique_id=1182441373]
@@ -419,9 +420,11 @@ metadata/_custom_type_script = "uid://b1liu1eo8kciq"
 script = ExtResource("12_rs6j2")
 metadata/_custom_type_script = "uid://b1liu1eo8kciq"
 
+[connection signal="body_detected" from="DetectionComponent" to="." method="perform_attack"]
 [connection signal="body_detected" from="DetectionComponent" to="StateMachine/Patrol" method="_onbody_detected"]
 [connection signal="body_entered" from="DetectionComponent" to="ChaseComponent" method="_on_detection_component_body_entered"]
 [connection signal="body_entered" from="DetectionComponent" to="DetectionComponent" method="_on_body_entered"]
 [connection signal="body_exited" from="DetectionComponent" to="DetectionComponent" method="_on_body_exited"]
 [connection signal="body_lost" from="DetectionComponent" to="StateMachine/Chase" method="_on_body_lost"]
+[connection signal="died" from="HealthComponent" to="." method="_on_enemy_died"]
 [connection signal="area_entered" from="HurtboxComponent" to="HurtboxComponent" method="_on_area_entered"]

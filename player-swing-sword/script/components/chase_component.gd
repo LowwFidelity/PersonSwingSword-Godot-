@@ -12,13 +12,6 @@ func chase() -> Vector2:
 func idle() ->void:
 	direction = Vector2.ZERO
 
-#Signal receiver function to get Player body to use it's position
-#func _on_area_2d_body_entered(body: Node2D) -> void:
-	#if body is protag:
-		#target = body
-		#radius = body.get_node("CollisionShape2D").shape.radius
-
-
 func _on_detection_component_body_entered(body: Node2D) -> void:
 	if body is protag:
 		target = body

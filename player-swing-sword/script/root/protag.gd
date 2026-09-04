@@ -8,3 +8,6 @@ class_name protag extends CharacterBody2D
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var hurtbox_component: HurtboxComponent = $HurtboxComponent
 @onready var weapon: Weapon = $Weapon
+
+func _on_player_died() -> void:
+	owner.on_game_over()

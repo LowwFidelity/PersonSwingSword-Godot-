@@ -827,5 +827,5 @@ metadata/_custom_type_script = "uid://b1liu1eo8kciq"
 
 [node name="Weapon" parent="." unique_id=376915144 instance=ExtResource("20_liup5")]
 
+[connection signal="died" from="HealthComponent" to="." method="_on_player_died"]
 [connection signal="area_entered" from="HurtboxComponent" to="HurtboxComponent" method="_on_area_entered"]
-[connection signal="took_damage" from="HurtboxComponent" to="HealthComponent" method="_on_hurtbox_component_took_damage"]

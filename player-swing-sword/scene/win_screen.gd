@@ -1,4 +1,4 @@
-class_name PauseMenu extends Control
+class_name WinScreen extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -8,8 +8,9 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 
-func _on_resume_pressed() -> void:
+func _on_restart_pressed() -> void:
 	get_tree().paused = false
+	get_tree().reload_current_scene()
 	visible = false
 	
 

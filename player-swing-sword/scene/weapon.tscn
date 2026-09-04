@@ -21,7 +21,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(21, 1.710677e-06)]
+"values": [Vector2(12.743762, 1.2635286)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -73,7 +73,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(29.72987, 2.4768615)]
+"values": [Vector2(12.743762, 1.2635286)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -126,7 +126,7 @@ rotation = -0.7735668
 script = ExtResource("1_1df6x")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=53678417]
-position = Vector2(21, 1.710677e-06)
+position = Vector2(12.743762, 1.2635286)
 rotation = 7.0685835
 scale = Vector2(1, 1.03125)
 texture = ExtResource("2_kchcj")
@@ -134,7 +134,7 @@ centered = false
 offset = Vector2(0, -32)
 
 [node name="HitboxComponent" type="Area2D" parent="Sprite2D" unique_id=1550511314]
-position = Vector2(20.38037, -22.733978)
+position = Vector2(21.710413, -21.901493)
 rotation = -0.7853982
 scale = Vector2(0.98052573, 0.9893845)
 skew = 0.029423356
@@ -144,6 +144,7 @@ damage = 25
 metadata/_custom_type_script = "uid://bps3n63e6i0ag"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprite2D/HitboxComponent" unique_id=2062932259]
+position = Vector2(0.32424855, 0.13771498)
 rotation = 1.5861799
 scale = Vector2(1.0157452, 1.0157452)
 skew = -0.030766964

@@ -1,7 +1,5 @@
 class_name HurtboxComponent extends Area2D
 
-signal took_damage(dmg: int)
-
 func _on_area_entered(area: Area2D) -> void:
 	if area is not HitboxComponent:
 		return
