@@ -1,25 +1,23 @@
 [gd_scene format=3 uid="uid://b70ux28b7qal0"]
 
 [ext_resource type="Script" uid="uid://c108ievcrlqdi" path="res://script/root/player.gd" id="1_v4iqv"]
-[ext_resource type="Texture2D" uid="uid://buaxet2202467" path="res://assets/FREE_Adventurer 2D Pixel Art/Sprites/IDLE/idle_down.png" id="1_xo3ru"]
-[ext_resource type="Texture2D" uid="uid://bcyjl3ghrf80q" path="res://assets/FREE_Adventurer 2D Pixel Art/Sprites/ATTACK 1/attack1_down.png" id="2_34jf3"]
-[ext_resource type="Texture2D" uid="uid://dyetdw5c03etb" path="res://assets/FREE_Adventurer 2D Pixel Art/Sprites/IDLE/idle_left.png" id="3_s4jxa"]
-[ext_resource type="Texture2D" uid="uid://bqw5g7o2m81l7" path="res://assets/FREE_Adventurer 2D Pixel Art/Sprites/ATTACK 1/attack1_left.png" id="3_u7b46"]
-[ext_resource type="Texture2D" uid="uid://sa7koeqs3wo1" path="res://assets/FREE_Adventurer 2D Pixel Art/Sprites/ATTACK 1/attack1_right.png" id="4_j4wxg"]
-[ext_resource type="Texture2D" uid="uid://cpdrudvg06ygb" path="res://assets/FREE_Adventurer 2D Pixel Art/Sprites/IDLE/idle_right.png" id="4_oh5ij"]
-[ext_resource type="Texture2D" uid="uid://cdrvdd3jq1nld" path="res://assets/FREE_Adventurer 2D Pixel Art/Sprites/ATTACK 1/attack1_up.png" id="5_bup7g"]
-[ext_resource type="Texture2D" uid="uid://d0u7faul6cno8" path="res://assets/FREE_Adventurer 2D Pixel Art/Sprites/IDLE/idle_up.png" id="5_hp4bs"]
-[ext_resource type="Texture2D" uid="uid://cr8u1tdo5lixf" path="res://assets/FREE_Adventurer 2D Pixel Art/Sprites/RUN/run_down.png" id="6_2fvbb"]
-[ext_resource type="Texture2D" uid="uid://gyug8dub3i03" path="res://assets/FREE_Adventurer 2D Pixel Art/Sprites/RUN/run_left.png" id="7_ml7e8"]
-[ext_resource type="Texture2D" uid="uid://bj5royiunfd1q" path="res://assets/FREE_Adventurer 2D Pixel Art/Sprites/RUN/run_right.png" id="8_ihjo1"]
-[ext_resource type="Texture2D" uid="uid://c0q5lypg3eqi7" path="res://assets/FREE_Adventurer 2D Pixel Art/Sprites/RUN/run_up.png" id="9_dk1vr"]
+[ext_resource type="Texture2D" uid="uid://buaxet2202467" path="res://assets/Protag/Sprites/IDLE/idle_down.png" id="1_xo3ru"]
+[ext_resource type="Texture2D" uid="uid://bcyjl3ghrf80q" path="res://assets/Protag/Sprites/ATTACK 1/attack1_down.png" id="2_34jf3"]
+[ext_resource type="Texture2D" uid="uid://dyetdw5c03etb" path="res://assets/Protag/Sprites/IDLE/idle_left.png" id="3_s4jxa"]
+[ext_resource type="Texture2D" uid="uid://bqw5g7o2m81l7" path="res://assets/Protag/Sprites/ATTACK 1/attack1_left.png" id="3_u7b46"]
+[ext_resource type="Texture2D" uid="uid://sa7koeqs3wo1" path="res://assets/Protag/Sprites/ATTACK 1/attack1_right.png" id="4_j4wxg"]
+[ext_resource type="Texture2D" uid="uid://cpdrudvg06ygb" path="res://assets/Protag/Sprites/IDLE/idle_right.png" id="4_oh5ij"]
+[ext_resource type="Texture2D" uid="uid://cdrvdd3jq1nld" path="res://assets/Protag/Sprites/ATTACK 1/attack1_up.png" id="5_bup7g"]
+[ext_resource type="Texture2D" uid="uid://d0u7faul6cno8" path="res://assets/Protag/Sprites/IDLE/idle_up.png" id="5_hp4bs"]
+[ext_resource type="Texture2D" uid="uid://cr8u1tdo5lixf" path="res://assets/Protag/Sprites/RUN/run_down.png" id="6_2fvbb"]
+[ext_resource type="Texture2D" uid="uid://gyug8dub3i03" path="res://assets/Protag/Sprites/RUN/run_left.png" id="7_ml7e8"]
+[ext_resource type="Texture2D" uid="uid://bj5royiunfd1q" path="res://assets/Protag/Sprites/RUN/run_right.png" id="8_ihjo1"]
+[ext_resource type="Texture2D" uid="uid://c0q5lypg3eqi7" path="res://assets/Protag/Sprites/RUN/run_up.png" id="9_dk1vr"]
 [ext_resource type="Script" uid="uid://g6hiqpaao78n" path="res://script/components/input_component.gd" id="13_34jf3"]
-[ext_resource type="Script" uid="uid://ba4b6c3du7aop" path="res://script/hurtbox_component.gd" id="14_iuf2t"]
+[ext_resource type="Script" uid="uid://ba4b6c3du7aop" path="res://script/hurtbox.gd" id="14_iuf2t"]
 [ext_resource type="PackedScene" uid="uid://cjvtlhmqkjasr" path="res://scene/weapon.tscn" id="14_v4iqv"]
-[ext_resource type="Script" uid="uid://bypts2fgx2vxg" path="res://script/hurt.gd" id="15_4reak"]
 [ext_resource type="Script" uid="uid://bddu7irjkiput" path="res://script/components/movement_component.gd" id="15_j4wxg"]
 [ext_resource type="Script" uid="uid://du0bb057ov7ih" path="res://script/components/health_component.gd" id="16_4ja17"]
-[ext_resource type="Script" uid="uid://do2qlfvn6ltw7" path="res://script/state_machine.gd" id="16_4reak"]
 [ext_resource type="Script" uid="uid://bf7rtc8liqpu6" path="res://script/components/animation_component.gd" id="16_bup7g"]
 [ext_resource type="Script" uid="uid://bl4pui2xggi2g" path="res://script/animation_script/health_change.gd" id="19_42h83"]
 [ext_resource type="AnimationLibrary" uid="uid://ki710dvmjyx3" path="res://assets/animations/Animations.res" id="20_jrjdb"]
@@ -853,14 +851,6 @@ zoom = Vector2(3, 3)
 [node name="Weapon" parent="." unique_id=376915144 instance=ExtResource("14_v4iqv")]
 position = Vector2(-4.7683716e-07, -13)
 scale = Vector2(0.7, 0.7)
-
-[node name="StateMachine" type="Node" parent="." unique_id=2047355538]
-script = ExtResource("16_4reak")
-metadata/_custom_type_script = "uid://do2qlfvn6ltw7"
-
-[node name="Hurt" type="Node" parent="StateMachine" unique_id=34113245]
-script = ExtResource("15_4reak")
-metadata/_custom_type_script = "uid://cvd88iqakxql7"
 
 [node name="InputComponent" type="Node" parent="." unique_id=1674661432]
 unique_name_in_owner = true

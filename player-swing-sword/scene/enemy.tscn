@@ -3,34 +3,15 @@
 [ext_resource type="Script" uid="uid://bosnyp20h2p55" path="res://script/root/enemy.gd" id="1_b7koy"]
 [ext_resource type="Texture2D" uid="uid://drmnkoaqeulh" path="res://assets/Jack/Jack full.png" id="2_yvcfn"]
 [ext_resource type="Script" uid="uid://du0bb057ov7ih" path="res://script/components/health_component.gd" id="3_1e552"]
-[ext_resource type="Script" uid="uid://ba4b6c3du7aop" path="res://script/hurtbox_component.gd" id="3_kqmod"]
 [ext_resource type="Script" uid="uid://bf7rtc8liqpu6" path="res://script/components/animation_component.gd" id="3_ulb22"]
 [ext_resource type="Script" uid="uid://bddu7irjkiput" path="res://script/components/movement_component.gd" id="4_1e552"]
-[ext_resource type="Script" uid="uid://do2qlfvn6ltw7" path="res://script/state_machine.gd" id="4_rs6j2"]
-[ext_resource type="Script" uid="uid://bypts2fgx2vxg" path="res://script/hurt.gd" id="5_0n578"]
-[ext_resource type="Script" uid="uid://tt5ajv8uo2dx" path="res://script/components/detection_componenet.gd" id="5_yvcfn"]
-[ext_resource type="Script" uid="uid://b7u3yc86obawk" path="res://script/components/chase_componenet.gd" id="6_ulb22"]
-[ext_resource type="Script" uid="uid://bl4pui2xggi2g" path="res://script/animation_script/health_change.gd" id="9_kqmod"]
-[ext_resource type="AnimationLibrary" uid="uid://ki710dvmjyx3" path="res://assets/animations/Animations.res" id="9_qhqle"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2cii3"]
-height = 28.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vgurf"]
-atlas = ExtResource("2_yvcfn")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kqmod"]
-atlas = ExtResource("2_yvcfn")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qhqle"]
-atlas = ExtResource("2_yvcfn")
-region = Rect2(0, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pw261"]
-atlas = ExtResource("2_yvcfn")
-region = Rect2(0, 32, 32, 32)
+[ext_resource type="Script" uid="uid://tt5ajv8uo2dx" path="res://script/components/detection_component.gd" id="5_yvcfn"]
+[ext_resource type="Script" uid="uid://b7u3yc86obawk" path="res://script/components/chase_component.gd" id="6_ulb22"]
+[ext_resource type="Script" uid="uid://bps3n63e6i0ag" path="res://script/components/hitbox_component.gd" id="7_pw261"]
+[ext_resource type="Script" uid="uid://dk6abmnf2wwm" path="res://script/components/hurtbox_component.gd" id="7_qhqle"]
+[ext_resource type="Script" uid="uid://q0mji0ujo5en" path="res://script/state_machine/state_machine.gd" id="12_0n578"]
+[ext_resource type="Script" uid="uid://cccrl1iaqbd3s" path="res://script/state_machine/enemy_states/chase_state.gd" id="12_rs6j2"]
+[ext_resource type="Script" uid="uid://vg62u7xc1t4r" path="res://script/state_machine/enemy_states/patrol_state.gd" id="13_sj55t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rs6j2"]
 atlas = ExtResource("2_yvcfn")
@@ -176,40 +157,24 @@ region = Rect2(256, 32, 32, 32)
 atlas = ExtResource("2_yvcfn")
 region = Rect2(288, 32, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgurf"]
+atlas = ExtResource("2_yvcfn")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqmod"]
+atlas = ExtResource("2_yvcfn")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhqle"]
+atlas = ExtResource("2_yvcfn")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pw261"]
+atlas = ExtResource("2_yvcfn")
+region = Rect2(0, 32, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_agyp5"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vgurf")
-}],
-"loop": 1,
-"name": &"idle_down",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kqmod")
-}],
-"loop": 1,
-"name": &"idle_left",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qhqle")
-}],
-"loop": 1,
-"name": &"idle_right",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pw261")
-}],
-"loop": 1,
-"name": &"idle_up",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rs6j2")
@@ -239,7 +204,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_6bka5")
 }],
 "loop": 1,
-"name": &"run_down",
+"name": &"chase_down",
 "speed": 10.0
 }, {
 "frames": [{
@@ -271,7 +236,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_32dru")
 }],
 "loop": 1,
-"name": &"run_left",
+"name": &"chase_left",
 "speed": 10.0
 }, {
 "frames": [{
@@ -303,7 +268,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_kgj4v")
 }],
 "loop": 1,
-"name": &"run_right",
+"name": &"chase_right",
 "speed": 10.0
 }, {
 "frames": [{
@@ -335,164 +300,131 @@ animations = [{
 "texture": SubResource("AtlasTexture_yyob4")
 }],
 "loop": 1,
-"name": &"run_up",
+"name": &"chase_up",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgurf")
+}],
+"loop": 1,
+"name": &"patrol_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqmod")
+}],
+"loop": 1,
+"name": &"patrol_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhqle")
+}],
+"loop": 1,
+"name": &"patrol_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pw261")
+}],
+"loop": 1,
+"name": &"patrol_up",
+"speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xipkr"]
-height = 28.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b2irg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_agyp5"]
 radius = 44.04543
 
-[sub_resource type="Animation" id="Animation_qhqle"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -14)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite2D:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("AnimatedSprite2D/HurtBox:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("AnimatedSprite2D/HurtBox:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("AnimatedSprite2D/HurtBox:monitoring")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_pw261"]
-_data = {
-&"RESET": SubResource("Animation_qhqle")
-}
+[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_agyp5"]
+length = 25.0
 
 [node name="Enemy" type="CharacterBody2D" unique_id=966632182]
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_b7koy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=521457346]
-position = Vector2(0, -18)
-shape = SubResource("CapsuleShape2D_2cii3")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1891060657]
 position = Vector2(0, -14)
 scale = Vector2(1, 0.984375)
 sprite_frames = SubResource("SpriteFrames_agyp5")
-animation = &"idle_down"
-autoplay = "idle_down"
-
-[node name="HurtBox" type="Area2D" parent="AnimatedSprite2D" unique_id=846956622]
-script = ExtResource("3_kqmod")
-
-[node name="HurtboxCollision" type="CollisionShape2D" parent="AnimatedSprite2D/HurtBox" unique_id=1335449001]
-position = Vector2(0, 1.7881393e-06)
-shape = SubResource("CapsuleShape2D_xipkr")
-
-[node name="AggroRange" type="Area2D" parent="." unique_id=6962230]
-collision_layer = 0
-
-[node name="AggroCollisionRange" type="CollisionShape2D" parent="AggroRange" unique_id=1881186009]
-position = Vector2(1, -18)
-shape = SubResource("CircleShape2D_agyp5")
-
-[node name="StateMachine" type="Node" parent="." unique_id=1535657643]
-script = ExtResource("4_rs6j2")
-metadata/_custom_type_script = "uid://do2qlfvn6ltw7"
-
-[node name="Hurt" type="Node" parent="StateMachine" unique_id=49046955]
-script = ExtResource("5_0n578")
-metadata/_custom_type_script = "uid://cvd88iqakxql7"
-
-[node name="HealthComponent" type="Node" parent="." unique_id=1214170943]
-script = ExtResource("3_1e552")
-metadata/_custom_type_script = "uid://du0bb057ov7ih"
+animation = &"chase_up"
+autoplay = "patrol_down"
 
 [node name="AnimationComponent" type="Node" parent="." unique_id=847176661 node_paths=PackedStringArray("sprite")]
 script = ExtResource("3_ulb22")
 sprite = NodePath("../AnimatedSprite2D")
 metadata/_custom_type_script = "uid://bf7rtc8liqpu6"
 
+[node name="ChaseComponent" type="Node" parent="." unique_id=388682123]
+script = ExtResource("6_ulb22")
+metadata/_custom_type_script = "uid://b7u3yc86obawk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2111056755]
+visible = false
+position = Vector2(0, -14.01)
+shape = SubResource("CapsuleShape2D_b2irg")
+
+[node name="DetectionComponent" type="Area2D" parent="." unique_id=606550301]
+collision_layer = 0
+script = ExtResource("5_yvcfn")
+metadata/_custom_type_script = "uid://tt5ajv8uo2dx"
+
+[node name="AggroCollisionRange" type="CollisionShape2D" parent="DetectionComponent" unique_id=1881186009]
+position = Vector2(1, -18)
+shape = SubResource("CircleShape2D_agyp5")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1214170943]
+script = ExtResource("3_1e552")
+metadata/_custom_type_script = "uid://du0bb057ov7ih"
+
+[node name="HitboxComponent" type="Area2D" parent="." unique_id=734517509]
+position = Vector2(0, -14)
+script = ExtResource("7_pw261")
+damage = 25
+metadata/_custom_type_script = "uid://bps3n63e6i0ag"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=911179884]
+rotation = -1.5707964
+shape = SubResource("SeparationRayShape2D_agyp5")
+
+[node name="HurtboxComponent" type="Area2D" parent="." unique_id=1182441373]
+collision_layer = 2
+script = ExtResource("7_qhqle")
+metadata/_custom_type_script = "uid://dk6abmnf2wwm"
+
+[node name="HurtboxShape" type="CollisionShape2D" parent="HurtboxComponent" unique_id=2000684453]
+position = Vector2(0, -14.01)
+shape = SubResource("CapsuleShape2D_b2irg")
+
 [node name="MovementComponent" type="Node" parent="." unique_id=453287450 node_paths=PackedStringArray("body")]
 script = ExtResource("4_1e552")
 body = NodePath("..")
 metadata/_custom_type_script = "uid://bddu7irjkiput"
 
-[node name="DetectionComponent" type="Node" parent="." unique_id=2131768969 node_paths=PackedStringArray("detection_area")]
-script = ExtResource("5_yvcfn")
-detection_area = NodePath("../AggroRange")
-metadata/_custom_type_script = "uid://tt5ajv8uo2dx"
+[node name="StateMachine" type="Node" parent="." unique_id=982876818 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("12_0n578")
+initial_state = NodePath("Patrol")
+metadata/_custom_type_script = "uid://q0mji0ujo5en"
 
-[node name="ChaseComponent" type="Node" parent="." unique_id=388682123]
-script = ExtResource("6_ulb22")
-metadata/_custom_type_script = "uid://b7u3yc86obawk"
+[node name="Patrol" type="Node" parent="StateMachine" unique_id=261433851]
+script = ExtResource("13_sj55t")
+metadata/_custom_type_script = "uid://b1liu1eo8kciq"
 
-[node name="HealthChange" type="AnimationPlayer" parent="." unique_id=1305135990 node_paths=PackedStringArray("sprite")]
-libraries/ = SubResource("AnimationLibrary_pw261")
-libraries/Animations = ExtResource("9_qhqle")
-script = ExtResource("9_kqmod")
-sprite = NodePath("../AnimatedSprite2D")
-metadata/_custom_type_script = "uid://bl4pui2xggi2g"
+[node name="Chase" type="Node" parent="StateMachine" unique_id=1045868209]
+script = ExtResource("12_rs6j2")
+metadata/_custom_type_script = "uid://b1liu1eo8kciq"
 
-[connection signal="body_entered" from="AggroRange" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="AggroRange" to="ChaseComponent" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="AggroRange" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_detected" from="DetectionComponent" to="." method="perform_attack"]
+[connection signal="body_detected" from="DetectionComponent" to="StateMachine/Patrol" method="_onbody_detected"]
+[connection signal="body_entered" from="DetectionComponent" to="ChaseComponent" method="_on_detection_component_body_entered"]
+[connection signal="body_entered" from="DetectionComponent" to="DetectionComponent" method="_on_body_entered"]
+[connection signal="body_exited" from="DetectionComponent" to="DetectionComponent" method="_on_body_exited"]
+[connection signal="body_lost" from="DetectionComponent" to="StateMachine/Chase" method="_on_body_lost"]
+[connection signal="died" from="HealthComponent" to="." method="_on_enemy_died"]
+[connection signal="area_entered" from="HurtboxComponent" to="HurtboxComponent" method="_on_area_entered"]
