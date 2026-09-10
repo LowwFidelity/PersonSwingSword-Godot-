@@ -2,7 +2,7 @@ extends State
 
 var direction: Vector2
 
-func enter_state() -> void:
+func enter_state() -> void:\
 	parent.velocity = Vector2.ZERO
 
 func on_physics_process(_delta: float) -> void:
@@ -13,3 +13,5 @@ func on_physics_process(_delta: float) -> void:
 		get_parent().transition_to("walk")
 	if Input.is_action_just_pressed("attack"):
 		get_parent().transition_to("attack")
+	if Input.is_action_just_pressed("dash"):
+		get_parent().transition_to("dash")

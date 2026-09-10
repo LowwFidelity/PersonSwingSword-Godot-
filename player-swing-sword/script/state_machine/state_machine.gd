@@ -3,6 +3,7 @@ class_name StateMachine extends Node
 @export var initial_state: State
 var active_state: State
 var active_state_name: String
+var previous_state: State
 var states: Dictionary = {}
 var parent: Node
 
@@ -32,6 +33,7 @@ func _physics_process(delta: float) -> void:
 
 #all the if statements in this function are safe guards
 func transition_to(new_state_name: String) -> void:
+	previous_state = active_state
 	if new_state_name == active_state.name.to_lower():
 		return
 	

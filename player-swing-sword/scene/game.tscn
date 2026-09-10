@@ -30,3 +30,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Enemy" parent="." unique_id=966632182 instance=ExtResource("5_p1ry8")]
 position = Vector2(111, -14)
+
+[node name="Enemy2" parent="." unique_id=2038068242 instance=ExtResource("5_p1ry8")]
+position = Vector2(-134, -62)

@@ -1,5 +1,7 @@
 class_name protag extends CharacterBody2D
 
+@export var stats: PlayerStats
+
 @onready var state_machine: StateMachine = $StateMachine
 @onready var input_component: InputComponent = $InputComponent
 @onready var movement_component: MovementComponent = $MovementComponent

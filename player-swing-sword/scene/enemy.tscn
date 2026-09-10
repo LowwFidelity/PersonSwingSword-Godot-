@@ -384,7 +384,6 @@ metadata/_custom_type_script = "uid://du0bb057ov7ih"
 
 [node name="HitboxComponent" type="Area2D" parent="." unique_id=734517509]
 script = ExtResource("7_pw261")
-damage = 25
 metadata/_custom_type_script = "uid://bps3n63e6i0ag"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=911179884]
@@ -424,4 +423,5 @@ metadata/_custom_type_script = "uid://b1liu1eo8kciq"
 [connection signal="body_entered" from="DetectionComponent" to="DetectionComponent" method="_on_body_entered"]
 [connection signal="body_exited" from="DetectionComponent" to="DetectionComponent" method="_on_body_exited"]
 [connection signal="body_lost" from="DetectionComponent" to="StateMachine/Chase" method="_on_body_lost"]
+[connection signal="died" from="HealthComponent" to="." method="_on_enemy_died"]
 [connection signal="area_entered" from="HurtboxComponent" to="HurtboxComponent" method="_on_area_entered"]
