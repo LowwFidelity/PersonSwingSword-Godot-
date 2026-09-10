@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://c0q5lypg3eqi7" path="res://assets/Protag/Sprites/RUN/run_up.png" id="9_bqcj4"]
 [ext_resource type="Script" uid="uid://g6hiqpaao78n" path="res://script/components/input_component.gd" id="9_qehno"]
 [ext_resource type="Script" uid="uid://bddu7irjkiput" path="res://script/components/movement_component.gd" id="10_86f4c"]
-[ext_resource type="Script" uid="uid://do2qlfvn6ltw7" path="res://script/state_machine/state_machine.gd" id="10_mjrmn"]
+[ext_resource type="Script" uid="uid://q0mji0ujo5en" path="res://script/state_machine/state_machine.gd" id="10_mjrmn"]
 [ext_resource type="Script" uid="uid://02hohdsi64tc" path="res://script/state_machine/player_states/idle_state.gd" id="11_86f4c"]
 [ext_resource type="Script" uid="uid://3uy8couy4g1y" path="res://script/state_machine/player_states/walk_state.gd" id="12_mjrmn"]
 [ext_resource type="Script" uid="uid://xaa0xrs5513j" path="res://script/state_machine/player_states/hurt_state.gd" id="13_u1bfh"]

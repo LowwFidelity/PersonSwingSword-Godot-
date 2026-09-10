@@ -1,10 +1,8 @@
-extends Control
-
+class_name GameOver extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	visible = false
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -12,6 +10,7 @@ func _process(_delta: float) -> void:
 
 func _on_restart_pressed() -> void:
 	get_tree().paused = false
+	get_tree().reload_current_scene()
 	visible = false
 	
 

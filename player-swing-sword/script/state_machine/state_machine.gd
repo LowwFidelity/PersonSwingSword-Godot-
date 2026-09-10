@@ -1,7 +1,6 @@
 class_name StateMachine extends Node
 
 @export var initial_state: State
-
 var active_state: State
 var active_state_name: String
 var states: Dictionary = {}
@@ -16,7 +15,7 @@ func _ready() -> void:
 		if child is State:
 			states[child.name.to_lower()] = child
 			child.parent = parent
-
+			
 	if initial_state:
 		initial_state.enter_state()
 		active_state = initial_state
@@ -35,18 +34,18 @@ func _physics_process(delta: float) -> void:
 func transition_to(new_state_name: String) -> void:
 	if new_state_name == active_state.name.to_lower():
 		return
-
+	
 	var new_state: State = states.get(new_state_name.to_lower())
-
+	
 	if !new_state:
 		return
 
 	if active_state:
 		active_state.exit_state()
-
+	
 	active_state = new_state
-
+	
 	if active_state:
 		active_state.enter_state()
-
+	
 	active_state_name = active_state.name.to_lower()

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cnpyuu8pre8ef"]
 
 [ext_resource type="Script" uid="uid://cfs4dijy4al5w" path="res://script/color_rect.gd" id="1_nbguh"]
-[ext_resource type="Script" uid="uid://bu8nd1vkvyjfj" path="res://script/inventory.gd" id="1_ql1wb"]
+[ext_resource type="Script" uid="uid://bu8nd1vkvyjfj" path="res://script/root/inventory.gd" id="1_ql1wb"]
 
 [node name="Inventory" type="Control" unique_id=172901817]
 layout_mode = 3
