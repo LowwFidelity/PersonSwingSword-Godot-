@@ -3,9 +3,7 @@ class_name HealthComponent extends Node
 signal health_changed(health: int, max_health: int)
 signal died
 
-
 @export var base_max_health: int = 100
-
 
 var current_max_health: int = 100
 var current_health: int = 0: set = on_health_set
