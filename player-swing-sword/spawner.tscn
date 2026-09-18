@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://d2j8vbg5lpjm3"]
+
+[ext_resource type="Script" uid="uid://dpa3krxnc5ijb" path="res://spawner.gd" id="1_7ocbr"]
+[ext_resource type="Script" uid="uid://tt5ajv8uo2dx" path="res://script/components/detection_component.gd" id="1_bphdf"]
+[ext_resource type="Script" uid="uid://q0mji0ujo5en" path="res://script/state_machine/state_machine.gd" id="2_7ocbr"]
+[ext_resource type="Script" uid="uid://ce214bllasorx" path="res://scene/dormant.gd" id="3_mv5bd"]
+[ext_resource type="Script" uid="uid://c4u4a40xffa48" path="res://scene/spawning.gd" id="4_h3fkd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xipkr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xipkr"]
+radius = 47.095646
+
+[node name="Spawner" type="CharacterBody2D" unique_id=1856938907]
+script = ExtResource("1_7ocbr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=695569369]
+shape = SubResource("RectangleShape2D_xipkr")
+
+[node name="DetectionComponent" type="Area2D" parent="." unique_id=752033162]
+script = ExtResource("1_bphdf")
+metadata/_custom_type_script = "uid://tt5ajv8uo2dx"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionComponent" unique_id=1437291295]
+shape = SubResource("CircleShape2D_xipkr")
+
+[node name="StateMachine" type="Node" parent="." unique_id=1000441386 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_7ocbr")
+initial_state = NodePath("Dormant")
+metadata/_custom_type_script = "uid://q0mji0ujo5en"
+
+[node name="Dormant" type="Node" parent="StateMachine" unique_id=915328515]
+script = ExtResource("3_mv5bd")
+metadata/_custom_type_script = "uid://b1liu1eo8kciq"
+
+[node name="Spawning" type="Node" parent="StateMachine" unique_id=1991239815]
+script = ExtResource("4_h3fkd")
+metadata/_custom_type_script = "uid://b1liu1eo8kciq"

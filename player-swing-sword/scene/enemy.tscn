@@ -344,8 +344,9 @@ radius = 44.04543
 [sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_agyp5"]
 length = 25.0
 
-[node name="Enemy" type="CharacterBody2D" unique_id=966632182]
+[node name="Enemy" type="CharacterBody2D" unique_id=966632182 groups=["giant_spiders"]]
 collision_layer = 2
+collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_b7koy")
 

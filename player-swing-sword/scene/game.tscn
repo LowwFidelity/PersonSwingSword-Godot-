@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cmebphd3n3ry7" path="res://scene/protag.tscn" id="5_yq8tf"]
 [ext_resource type="PackedScene" uid="uid://c53ver8c3s4pf" path="res://scene/WinScreen.tscn" id="6_17rxn"]
 [ext_resource type="PackedScene" uid="uid://x2d71ba1y17g" path="res://scene/PauseMenu.tscn" id="6_ll5lq"]
+[ext_resource type="PackedScene" uid="uid://cugkwf1vgtjkr" path="res://scene/enemy_spawner.tscn" id="7_17rxn"]
 
 [node name="Game" type="Node2D" unique_id=985180898]
 script = ExtResource("1_qpk70")
@@ -19,10 +20,12 @@ position = Vector2(-441, -320)
 
 [node name="Inventory" parent="CanvasLayer" unique_id=172901817 instance=ExtResource("4_xwcet")]
 process_mode = 3
+visible = false
 metadata/_edit_use_anchors_ = true
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=797441628 instance=ExtResource("6_ll5lq")]
 process_mode = 3
+visible = false
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 0.0
@@ -30,9 +33,11 @@ offset_bottom = 0.0
 metadata/_edit_use_anchors_ = true
 
 [node name="GameOver" parent="CanvasLayer" unique_id=705714761 instance=ExtResource("5_qpk70")]
+visible = false
 
 [node name="WinScreen" parent="CanvasLayer" unique_id=327325362 instance=ExtResource("6_17rxn")]
 process_mode = 3
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -47,5 +52,9 @@ grow_vertical = 2
 
 [node name="Protag" parent="." unique_id=862014705 instance=ExtResource("5_yq8tf")]
 
+[node name="EnemySpawner" parent="." unique_id=1763245826 instance=ExtResource("7_17rxn")]
+position = Vector2(-299, -156)
+
 [node name="Enemy" parent="." unique_id=966632182 instance=ExtResource("5_p1ry8")]
 position = Vector2(111, -14)
+collision_layer = 3

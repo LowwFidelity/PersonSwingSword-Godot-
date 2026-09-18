@@ -2,16 +2,29 @@
 
 [ext_resource type="Script" uid="uid://q0mji0ujo5en" path="res://script/state_machine/state_machine.gd" id="1_1lo1l"]
 [ext_resource type="Script" uid="uid://tt5ajv8uo2dx" path="res://script/components/detection_component.gd" id="1_hgipb"]
+[ext_resource type="Script" uid="uid://dgoxyt2yy6xfq" path="res://scene/enemy_spawner.gd" id="1_weyhg"]
 [ext_resource type="Script" uid="uid://ce214bllasorx" path="res://scene/dormant.gd" id="2_weyhg"]
 [ext_resource type="Script" uid="uid://c4u4a40xffa48" path="res://scene/spawning.gd" id="3_5pqtn"]
+[ext_resource type="PackedScene" uid="uid://cmkicfql4735n" path="res://scene/enemy.tscn" id="6_5pqtn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1aeu8"]
-radius = 44.04543
+radius = 198.0101
 
-[node name="EnemySpawner" type="Node2D" unique_id=1763245826]
+[node name="EnemySpawner" type="Node2D" unique_id=2017174709]
+script = ExtResource("1_weyhg")
+metadata/_custom_type_script = "uid://dgoxyt2yy6xfq"
 
-[node name="StateMachine" type="Node" parent="." unique_id=1959104895]
+[node name="DetectionComponent" type="Area2D" parent="." unique_id=1789553641]
+collision_layer = 0
+script = ExtResource("1_hgipb")
+metadata/_custom_type_script = "uid://tt5ajv8uo2dx"
+
+[node name="AggroCollisionRange" type="CollisionShape2D" parent="DetectionComponent" unique_id=1857021655]
+shape = SubResource("CircleShape2D_1aeu8")
+
+[node name="StateMachine" type="Node" parent="." unique_id=1959104895 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_1lo1l")
+initial_state = NodePath("Dormant")
 metadata/_custom_type_script = "uid://q0mji0ujo5en"
 
 [node name="Dormant" type="Node" parent="StateMachine" unique_id=2066893940]
@@ -20,15 +33,21 @@ metadata/_custom_type_script = "uid://b1liu1eo8kciq"
 
 [node name="Spawning" type="Node" parent="StateMachine" unique_id=1553664756]
 script = ExtResource("3_5pqtn")
+enemies = 15
 metadata/_custom_type_script = "uid://b1liu1eo8kciq"
 
-[node name="DetectionComponent" type="Area2D" parent="." unique_id=1789553641]
-script = ExtResource("1_hgipb")
-metadata/_custom_type_script = "uid://tt5ajv8uo2dx"
+[node name="WaveTimer" type="Timer" parent="StateMachine/Spawning" unique_id=1659988482]
 
-[node name="AggroCollisionRange" type="CollisionShape2D" parent="DetectionComponent" unique_id=1857021655]
-position = Vector2(1, -18)
-shape = SubResource("CircleShape2D_1aeu8")
+[node name="Enemy" parent="." unique_id=966632182 instance=ExtResource("6_5pqtn")]
+position = Vector2(39, -42)
+
+[node name="Enemy2" parent="." unique_id=565521296 instance=ExtResource("6_5pqtn")]
+position = Vector2(-25, 70)
+
+[node name="Enemy3" parent="." unique_id=1983369712 instance=ExtResource("6_5pqtn")]
+position = Vector2(124, 69)
 
 [connection signal="body_detected" from="DetectionComponent" to="StateMachine/Dormant" method="_on_body_detected"]
+[connection signal="body_entered" from="DetectionComponent" to="DetectionComponent" method="_on_body_entered"]
+[connection signal="body_exited" from="DetectionComponent" to="DetectionComponent" method="_on_body_exited"]
 [connection signal="body_lost" from="DetectionComponent" to="StateMachine/Spawning" method="_on_body_lost"]

@@ -1,14 +1,17 @@
 extends State
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+@export var enemies := 0
+@onready var wave_timer: Timer = $WaveTimer
 
+func enter_state() -> void:
+	wave_timer.start(10.0)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
+func on_process(_delta: float) -> void:
+	get_tree().call_group("giant_spiders", transition_to("chase"))
+	await wave_timer.timeout
+	
 
 func _on_body_lost() -> void:
-	get_parent().transition_to("dormant")
+	if
+		get_parent().transition_to("dormant")
+	

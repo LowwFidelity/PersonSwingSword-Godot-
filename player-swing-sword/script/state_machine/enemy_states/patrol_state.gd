@@ -11,4 +11,6 @@ func on_physics_process(_delta: float) -> void:
 	parent.chase_component.idle()
 
 func _onbody_detected(_body: Node) -> void:
+	if _body is not protag:
+		return
 	get_parent().transition_to("chase")
