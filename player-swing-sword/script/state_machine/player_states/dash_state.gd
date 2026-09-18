@@ -1,7 +1,6 @@
 extends State
 
 var direction
-var cooldown: Timer
 
 func enter_state() -> void:
 	direction = parent.input_component.move_dir
@@ -13,3 +12,6 @@ func on_physics_process(_delta: float) -> void:
 	parent.movement_component.dash(direction)
 	await parent.animated_sprite_2d.animation_finished
 	get_parent().transition_to("walk")
+
+func exit_state() -> void:
+	parent.dash_timer.start()

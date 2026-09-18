@@ -13,5 +13,7 @@ func on_physics_process(_delta: float) -> void:
 		get_parent().transition_to("walk")
 	if Input.is_action_just_pressed("attack"):
 		get_parent().transition_to("attack")
-	if Input.is_action_just_pressed("dash"):
-		get_parent().transition_to("dash")
+
+
+func _on_health_changed(health: int, max_health: int) -> void:
+	get_parent().transition_to("hurt")

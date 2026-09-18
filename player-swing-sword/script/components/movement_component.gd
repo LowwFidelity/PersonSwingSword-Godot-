@@ -16,6 +16,6 @@ func move(dir: Vector2) -> void:
 	body.move_and_slide()
 
 func dash(dir: Vector2) -> void:
-	body.velocity.x = dir.x * (speed + 50)
-	body.velocity.y = dir.y * (speed + 50)
+	body.velocity.x = dir.x * (speed + 150)
+	body.velocity.y = dir.y * (speed + 150)
 	body.move_and_slide()

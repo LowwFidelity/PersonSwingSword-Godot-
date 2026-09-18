@@ -25,5 +25,5 @@ func take_damage(amount: float) -> void:
 	current_health = clamp(current_health - amount, 0.0, current_max_health)
 	if current_health == 0.0:
 		died.emit()
-	health_changed.emit(current_health)
+	health_changed.emit(current_health, current_max_health)
 	print(current_health)
