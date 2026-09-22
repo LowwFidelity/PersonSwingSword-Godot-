@@ -51,3 +51,4 @@ position = Vector2(124, 69)
 [connection signal="body_entered" from="DetectionComponent" to="DetectionComponent" method="_on_body_entered"]
 [connection signal="body_exited" from="DetectionComponent" to="DetectionComponent" method="_on_body_exited"]
 [connection signal="body_lost" from="DetectionComponent" to="StateMachine/Spawning" method="_on_body_lost"]
+[connection signal="timeout" from="StateMachine/Spawning/WaveTimer" to="StateMachine/Spawning" method="_on_wave_timer_timeout"]

@@ -9,6 +9,10 @@ class_name Enemy extends CharacterBody2D
 @onready var hitbox_component: HitboxComponent = $HitboxComponent
 @onready var state_machine: StateMachine = $StateMachine
 
+func spawner_summon(body: Node2D) -> void:
+	chase_component.target = body
+	state_machine.transition_to("chase")
+
 func _on_enemy_died() -> void:
 		owner.on_game_win()
 		queue_free()

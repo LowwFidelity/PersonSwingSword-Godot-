@@ -53,7 +53,7 @@ grow_vertical = 2
 [node name="Protag" parent="." unique_id=862014705 instance=ExtResource("5_yq8tf")]
 
 [node name="EnemySpawner" parent="." unique_id=1763245826 instance=ExtResource("7_17rxn")]
-position = Vector2(-299, -156)
+position = Vector2(-275, 182)
 
 [node name="Enemy" parent="." unique_id=966632182 instance=ExtResource("5_p1ry8")]
 position = Vector2(111, -14)

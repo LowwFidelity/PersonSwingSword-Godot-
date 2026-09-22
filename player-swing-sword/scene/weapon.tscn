@@ -122,6 +122,8 @@ _data = {
 
 [node name="Weapon" type="Node2D" unique_id=376915144]
 visible = false
+light_mask = 2
+visibility_layer = 2
 rotation = -0.7735668
 script = ExtResource("1_1df6x")
 
@@ -138,6 +140,7 @@ position = Vector2(21.710413, -21.901493)
 rotation = -0.7853982
 scale = Vector2(0.98052573, 0.9893845)
 skew = 0.029423356
+collision_layer = 2
 collision_mask = 2
 script = ExtResource("3_urpyb")
 damage = 25
